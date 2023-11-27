@@ -8,6 +8,6 @@ namespace CameraReview.Review
         public string Title { get; set; }
         public string Content { get; set; }
         public string Author { get; set; }
-        public IProduct Product { get; set; }
+        public IProduct Products { get; set; }
     }
 }

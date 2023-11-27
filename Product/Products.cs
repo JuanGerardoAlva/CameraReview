@@ -1,6 +1,6 @@
 ﻿namespace CameraReview.Product
 {
-    public class Product : IProduct
+    public class Products : IProduct
     {
         public string? Id { get; set; }
         public string Name { get; set; }
