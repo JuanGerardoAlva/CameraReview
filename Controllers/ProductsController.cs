@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CameraReview.Controllers
 {
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : Controller
     {
