@@ -22,6 +22,7 @@ namespace CameraReview.Controllers
         public async Task <Products>PostProducts(Products products)
         {
             await _productsServices.CreateAsync(products);
+
             return products;    
         }
 
