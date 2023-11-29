@@ -1,15 +1,31 @@
-﻿namespace CameraReview.Product.Lens
+﻿using MongoDB.Bson.Serialization.Attributes;
+
+namespace CameraReview.Product.Lens
 {
     public class Lens : ILens
     {
+        [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string? Id { get; set; }
-        public int FocalLength { get; set; }
-        public int ApertureLens { get; set; }
-        public string Name { get; set; }
-        public string SKU { get; set; }
-        public string Manufacturer { get; set; }
-        public List<Feature> Features { get; set; }
 
+        [BsonElement("FocalLength")]
+        public int FocalLength { get; set; }
+        
+        [BsonElement("ApertureLens")]
+        public int ApertureLens { get; set; }
+   
+        [BsonElement("Name")]
+        public string Name { get; set; }
+        
+        [BsonElement("SKU")]
+        public string SKU { get; set; }
+        
+        [BsonElement("Manufacturer")]
+        public string Manufacturer { get; set; }
+        
+        [BsonElement("Features")]
+        public List<Feature> Features { get; set; }
+        
         public string GetContent()
         {
             return $"Name: {Name}\n SKU: {SKU}\n Manufacturer: {Manufacturer}";

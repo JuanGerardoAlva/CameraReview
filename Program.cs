@@ -3,16 +3,23 @@ using CameraReview.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container products
 builder.Services.Configure<ProductDataBaseSettings>
     (builder.Configuration.GetSection("DevNetProductsStorageDatabase"));
 
 builder.Services.AddSingleton<ProductsServices>(); //singleton
 
+//Add services to the container cameras
 builder.Services.Configure<ProductDataBaseSettings>
     (builder.Configuration.GetSection("DevNetCamerasStorageDatabase"));
 
 builder.Services.AddSingleton<CameraServices>(); //singleton
+
+//Add services to the container Lens
+builder.Services.Configure<ProductDataBaseSettings>
+    (builder.Configuration.GetSection("DevNetLensStorageDatabase"));
+
+builder.Services.AddSingleton<LensServices>(); //singleton
 
 
 builder.Services.AddControllers();
