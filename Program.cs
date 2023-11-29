@@ -9,6 +9,11 @@ builder.Services.Configure<ProductDataBaseSettings>
 
 builder.Services.AddSingleton<ProductsServices>(); //singleton
 
+builder.Services.Configure<ProductDataBaseSettings>
+    (builder.Configuration.GetSection("DevNetCamerasStorageDatabase"));
+
+builder.Services.AddSingleton<CameraServices>(); //singleton
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

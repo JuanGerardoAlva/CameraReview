@@ -1,16 +1,38 @@
-﻿namespace CameraReview.Product.Camera
+﻿using MongoDB.Bson.Serialization.Attributes;
+
+namespace CameraReview.Product.Camera
 {
     public class Camera : ICamera
     {
+        [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string? Id { get; set; }
+        
+        [BsonElement("MaxISO")]
         public int MaxISO { get; set; }
+        
+        [BsonElement("Type")]
         public string Type { get; set; }
+
+        [BsonElement("CropFactor")]
         public int CropFactor { get; set; }
+
+        [BsonElement("MaxResolution")]
         public int MaxResolution { get; set; }
+
+        [BsonElement("MaxZoom")]
         public int MaxZoom { get; set; }
+
+        [BsonElement("Name")]
         public string Name { get; set; }
+
+        [BsonElement("SKU")]
         public string SKU { get; set; }
+
+        [BsonElement("Manufacturer")]
         public string Manufacturer { get; set; }
+
+        [BsonElement("Features")]
         public List<Feature> Features { get; set; }
 
     public string GetContent()
