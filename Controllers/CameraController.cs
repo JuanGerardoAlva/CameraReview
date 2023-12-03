@@ -20,7 +20,7 @@ namespace CameraReview.Controllers
             => await _cameraServices.GetAsync();
 
         [HttpPost]
-        public async Task<Camera> Camera(Camera camera)
+        public async Task<Camera> PostCamera(Camera camera)
         {
             await _cameraServices.CreateAsync(camera);
 

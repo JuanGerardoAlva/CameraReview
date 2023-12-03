@@ -20,7 +20,7 @@ namespace CameraReview.Controllers
             => await _lensServices.GetAsync();
 
         [HttpPost]
-        public async Task<Lens> Lens(Lens lens)
+        public async Task<Lens> PostLens(Lens lens)
         {
             await _lensServices.CreateAsync(lens);
 

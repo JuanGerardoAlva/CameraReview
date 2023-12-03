@@ -1,4 +1,5 @@
 using CameraReview.Models;
+using CameraReview.Product;
 using CameraReview.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,19 +8,26 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<ProductDataBaseSettings>
     (builder.Configuration.GetSection("DevNetProductsStorageDatabase"));
 
-builder.Services.AddSingleton<ProductsServices>(); //singleton
+builder.Services.AddScoped<ProductsServices>(); // stateless
+//  AddSingleton<ProductsServices>(); //singleton utiliza muita memoria
 
 //Add services to the container cameras
 builder.Services.Configure<ProductDataBaseSettings>
     (builder.Configuration.GetSection("DevNetCamerasStorageDatabase"));
 
-builder.Services.AddSingleton<CameraServices>(); //singleton
+builder.Services.AddScoped<CameraServices>(); //stateless
 
 //Add services to the container Lens
 builder.Services.Configure<ProductDataBaseSettings>
     (builder.Configuration.GetSection("DevNetLensStorageDatabase"));
 
-builder.Services.AddSingleton<LensServices>(); //singleton
+builder.Services.AddScoped<LensServices>(); //stateless
+
+//Add services to the container review
+/*builder.Services.Configure<ProductDataBaseSettings>
+    (builder.Configuration.GetSection("DevNetReviewStorageDatabase"));
+
+builder.Services.AddScoped<ReviewServices>(); //stateless*/
 
 
 builder.Services.AddControllers();
@@ -36,6 +44,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//middlewares
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
