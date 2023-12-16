@@ -1,4 +1,7 @@
-﻿using CameraReview.Review;
+﻿using CameraReview.Authors;
+using CameraReview.Controllers;
+using CameraReview.Product.Camera;
+using CameraReview.Review;
 using CameraReview.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,9 +17,11 @@ namespace CameraReview.Controllers
             _reviewServices = reviewServices;
         }
 
+
         [HttpGet]
         public async Task<List<Reviews>> GetReviews() 
             => await _reviewServices.GetAsync();
+       
 
         [HttpPost]
         public async Task<Reviews> PostReviews(Reviews reviews)
@@ -27,3 +32,4 @@ namespace CameraReview.Controllers
         }
     }
 }
+

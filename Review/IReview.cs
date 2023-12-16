@@ -1,4 +1,5 @@
-﻿using CameraReview.Product;
+﻿using CameraReview.Authors;
+using CameraReview.Product;
 
 namespace CameraReview.Review
 {
@@ -7,7 +8,8 @@ namespace CameraReview.Review
         public string? Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public string Author { get; set; }
-        public IProduct Products { get; set; }
+
+        //public IProduct Products { get; set; }
+
     }
 }

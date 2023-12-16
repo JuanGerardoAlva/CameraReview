@@ -9,7 +9,7 @@ namespace CameraReview.Services
     public class ProductsServices
     {
         private readonly IMongoCollection<Products> _productCollection;
-
+               
         public ProductsServices(IOptions<ProductDataBaseSettings> productsServices)
         {
             var mongoClient = new MongoClient(productsServices.Value.ConnectionString);

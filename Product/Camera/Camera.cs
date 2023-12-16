@@ -1,7 +1,10 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
+using System.Runtime.Serialization;
 
 namespace CameraReview.Product.Camera
 {
+
+    [BsonIgnoreExtraElements]
     public class Camera : ICamera
     {
         [BsonId]
@@ -10,7 +13,7 @@ namespace CameraReview.Product.Camera
         
         [BsonElement("MaxISO")]
         public int MaxISO { get; set; }
-        
+
         [BsonElement("Type")]
         public string Type { get; set; }
 
@@ -32,7 +35,8 @@ namespace CameraReview.Product.Camera
         [BsonElement("Manufacturer")]
         public string Manufacturer { get; set; }
 
-        [BsonElement("Features")]
+        [DataMember]
+        //[BsonElement("Features")]
         public List<Feature> Features { get; set; }
 
     public string GetContent()

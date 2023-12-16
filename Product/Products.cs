@@ -3,6 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace CameraReview.Product
 {
+    [BsonIgnoreExtraElements]
     public class Products : IProduct
     {
         [BsonId]

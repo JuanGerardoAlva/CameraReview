@@ -2,6 +2,7 @@
 
 namespace CameraReview.Product.Lens
 {
+    [BsonIgnoreExtraElements]
     public class Lens : ILens
     {
         [BsonId]
