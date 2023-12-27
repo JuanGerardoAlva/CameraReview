@@ -1,10 +1,9 @@
 ﻿namespace CameraReview.Models
 {
-    public class ProductDataBaseSettings:IProductDataBaseSettings
+    public interface IReviewDataBaseSettings
     {
         public string? ConnectionString { get; set; }
         public string? DatabaseName { get; set; }
-        public string? ProductCollectionName { get; set; }
-
+        public string? ReviewCollectionName { get; set; }
     }
 }

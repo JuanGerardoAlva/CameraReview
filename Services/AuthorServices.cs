@@ -1,20 +1,20 @@
 ﻿using CameraReview.Authors;
 using CameraReview.Models;
-using CameraReview.Review;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 namespace CameraReview.Services
 {
-    public class AuthorServices
+    public class AuthorServices : IAuthorServices
     {
-        private readonly IMongoCollection<Author> _authorCollection;
-        public AuthorServices(IOptions<ProductDataBaseSettings> authorServices)
+        public IMongoCollection<Author> _authorCollection;
+
+        public AuthorServices(IOptions<AuthorDataBaseSettings> authorServices)
+  
         {
             var mongoClient = new MongoClient(authorServices.Value.ConnectionString);
-            var mongoDatabase = mongoClient.GetDatabase(authorServices.Value.DatabaseName);
-
-            _authorCollection = mongoDatabase.GetCollection<Author>(authorServices.Value.ProductCollectionName);
+            IMongoDatabase mongoDatabase = mongoClient.GetDatabase(authorServices.Value.DatabaseName);
+            _authorCollection = mongoDatabase.GetCollection<Author>(authorServices.Value.AuthorCollectionName);
         }
         public async Task<List<Author>> GetAsync() =>
           await _authorCollection.Find(x => true).ToListAsync();

@@ -27,17 +27,17 @@ namespace CameraReview.Product.Camera
         public int MaxZoom { get; set; }
 
         [BsonElement("Name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [BsonElement("SKU")]
-        public string SKU { get; set; }
+        public string? SKU { get; set; }
 
         [BsonElement("Manufacturer")]
-        public string Manufacturer { get; set; }
+        public string? Manufacturer { get; set; }
 
         [DataMember]
         //[BsonElement("Features")]
-        public List<Feature> Features { get; set; }
+        public List<Feature>? Features { get; set; }
 
     public string GetContent()
         {

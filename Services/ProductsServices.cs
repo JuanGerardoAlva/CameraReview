@@ -6,7 +6,7 @@ using MongoDB.Driver;
 
 namespace CameraReview.Services
 {  
-    public class ProductsServices
+    public class ProductsServices: IProductServices
     {
         private readonly IMongoCollection<Products> _productCollection;
                

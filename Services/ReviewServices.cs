@@ -8,7 +8,7 @@ using MongoDB.Driver;
 
 namespace CameraReview.Services
 {
-    public class ReviewServices
+    public class ReviewServices: IReviewServices
     {
         private readonly IMongoCollection<Reviews> _reviewCollection;
         public ReviewServices(IOptions<ProductDataBaseSettings> reviewServices)

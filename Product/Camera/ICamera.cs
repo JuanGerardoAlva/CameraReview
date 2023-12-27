@@ -1,8 +1,7 @@
 ﻿namespace CameraReview.Product.Camera
 {
-    public interface ICamera : IProduct
+    public interface ICamera : IProducts
     {
-        public string? Id {  get; set; }
         public int MaxISO { get; set; }
         public string Type {  get; set; }
         public int CropFactor { get; set; }

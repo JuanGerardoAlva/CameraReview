@@ -4,23 +4,23 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace CameraReview.Product
 {
     [BsonIgnoreExtraElements]
-    public class Products : IProduct
+    public class Products : IProducts
     {
         [BsonId]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string? Id { get; set; }
 
         [BsonElement("Name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [BsonElement("SKU")]
-        public string SKU { get; set; }
+        public string? SKU { get; set; }
 
         [BsonElement("Manufacturer")]
-        public string Manufacturer { get; set; }
+        public string? Manufacturer { get; set; }
 
         [BsonElement("Features")]
-        public List<Feature> Features { get; set; }
+        public List<Feature>? Features { get; set; }
 
         public string GetContent()
         {
