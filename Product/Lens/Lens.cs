@@ -15,7 +15,7 @@ namespace CameraReview.Product.Lens
         [BsonElement("ApertureLens")]
         public int ApertureLens { get; set; }
    
-        [BsonElement("Name"), BsonRequired]
+        [BsonElement("Name")]
         public string? Name { get; set; }
 
         [BsonElement("SKU")]

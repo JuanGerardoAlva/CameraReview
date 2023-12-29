@@ -11,12 +11,12 @@ namespace CameraReview.Services
     {
         private readonly IMongoCollection<Camera> _cameraCollection;
 
-        public CameraServices(IOptions<ProductDataBaseSettings> cameraServices)
+        public CameraServices(IOptions<CameraDataBaseSettings> cameraServices)
         {
             var mongoClient = new MongoClient(cameraServices.Value.ConnectionString);
             var mongoDatabase = mongoClient.GetDatabase(cameraServices.Value.DatabaseName);
 
-            _cameraCollection = mongoDatabase.GetCollection<Camera>(cameraServices.Value.ProductCollectionName);
+            _cameraCollection = mongoDatabase.GetCollection<Camera>(cameraServices.Value.CameraCollectionName);
         }
 
         public async Task<List<Camera>> GetAsync() =>

@@ -10,12 +10,12 @@ namespace CameraReview.Services
     {
         private readonly IMongoCollection<Lens> _lensCollection;
 
-        public LensServices(IOptions<ProductDataBaseSettings> lensServices)
+        public LensServices(IOptions<LensDataBaseSettings> lensServices)
         {
             var mongoClient = new MongoClient(lensServices.Value.ConnectionString);
             var mongoDatabase = mongoClient.GetDatabase(lensServices.Value.DatabaseName);
 
-            _lensCollection = mongoDatabase.GetCollection<Lens>(lensServices.Value.ProductCollectionName);
+            _lensCollection = mongoDatabase.GetCollection<Lens>(lensServices.Value.LensCollectionName);
         }
 
         public async Task<List<Lens>> GetAsync() =>

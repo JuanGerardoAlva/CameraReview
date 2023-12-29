@@ -11,12 +11,12 @@ namespace CameraReview.Services
     public class ReviewServices: IReviewServices
     {
         private readonly IMongoCollection<Reviews> _reviewCollection;
-        public ReviewServices(IOptions<ProductDataBaseSettings> reviewServices)
+        public ReviewServices(IOptions<ReviewDataBaseSettings> reviewServices)
         {
            var mongoClient = new MongoClient(reviewServices.Value.ConnectionString);
            var mongoDatabase = mongoClient.GetDatabase(reviewServices.Value.DatabaseName);
 
-           _reviewCollection = mongoDatabase.GetCollection<Reviews>(reviewServices.Value.ProductCollectionName);
+            _reviewCollection = mongoDatabase.GetCollection<Reviews>(reviewServices.Value.ReviewCollectionName);
        
         }
 

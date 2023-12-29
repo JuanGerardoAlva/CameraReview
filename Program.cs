@@ -1,9 +1,6 @@
-using Amazon.Runtime.Internal.Auth;
 using CameraReview.Models;
-using CameraReview.Product;
 using CameraReview.Services;
-using Microsoft.Extensions.DependencyInjection;
-using MongoDB.Bson;
+
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -11,7 +8,7 @@ builder.Services.AddRazorPages();
 
 // Add services to the container products
 builder.Services.Configure<ProductDataBaseSettings>
-    (builder.Configuration.GetSection("DevNetProductsStorageDatabase"));
+   (builder.Configuration.GetSection("DevNetProductsStorageDatabase"));
 builder.Services.AddScoped<ProductsServices>(); // stateless
 
 //Add services to the container cameras
@@ -40,8 +37,6 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-
 
 var app = builder.Build();
 
