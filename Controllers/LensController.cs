@@ -26,6 +26,23 @@ namespace CameraReview.Controllers
 
             return lens;
         }
+
+        [HttpPut]
+        public async Task<Lens> PutLens(string id, Lens lens)
+        {
+            await _lensServices.UpdateAsync(id, lens);
+
+            return lens;
+        }
+
+        [HttpDelete]
+        public async Task<Lens> DeleteLens(string id, Lens lens)
+        {
+            await _lensServices.RemoveAsync(id, lens);  
+            
+            return lens;
+
+        }
     }
 }
 

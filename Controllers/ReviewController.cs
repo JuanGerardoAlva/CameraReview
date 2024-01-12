@@ -30,6 +30,26 @@ namespace CameraReview.Controllers
 
             return reviews;
         }
+
+        [HttpPut("{id}")]
+
+        public async Task<Reviews>  PutReview(string id, Reviews reviews)
+        {
+            await _reviewServices.UpdateAsync(id, reviews);
+
+            return reviews;
+        }
+
+        [HttpDelete("{id}")]
+
+        public async Task<Reviews> DeleteReview(string id, Reviews reviews)
+        {
+            await _reviewServices.RemoveAsync(id, reviews);
+
+            return reviews;
+
+        }
+
     }
 }
 

@@ -27,6 +27,23 @@ namespace CameraReview.Controllers
 
             return authors;
         }
+
+        [HttpPut("{id}")]
+        public async Task<Author> PutAuthor(string id, Author authors)
+        {
+            await _authorServices.UpdateAsync(id, authors);
+
+            return authors;
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<Author> DeleteAuthor(string id, Author authors)
+        {
+            await _authorServices.RemoveAsync(id, authors);
+
+            return authors;
+        }
+
     }
 }
 

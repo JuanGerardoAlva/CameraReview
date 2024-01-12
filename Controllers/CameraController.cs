@@ -27,6 +27,23 @@ namespace CameraReview.Controllers
             return camera;
         }
 
+        [HttpPut("{id}")]
+        public async Task<Camera> PutCamera(string id, Camera camera)
+
+        {
+            await _cameraServices.UpdateAsync(id, camera);
+            
+            return camera;
+
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<Camera> DeleteCamera(string id, Camera camera)
+        {
+            await _cameraServices.RemoveAsync(id, camera);
+            
+            return camera;
+        }
 
     }
 }
